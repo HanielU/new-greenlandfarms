@@ -10,11 +10,12 @@
 
 	let navOpen = false;
 	let pageWidth = 0;
-	$: toggleFreeze = navOpen && pageWidth < 769;
+	$: toggleFreeze = navOpen && pageWidth < 768;
 	$: if (pageWidth > 768) navOpen = false;
 	const toggleNav = () => (navOpen = !navOpen);
 </script>
 
+<svelte:window bind:innerWidth={pageWidth} />
 <div class="freeze-bg" class:open={toggleFreeze} on:click={toggleNav} />
 
 <nav class:open={navOpen}>
@@ -76,8 +77,8 @@
 		cursor: pointer;
 
 		&__burger {
-			width: 30px;
-			height: 4px;
+			width: 27px;
+			height: 3.5px;
 			background: var(--font-color-primary);
 			transition: all 0.25s ease-in-out;
 			position: relative;
@@ -115,28 +116,27 @@
 	}
 
 	ul {
-		position: absolute;
-		z-index: 2;
-		padding: 0;
+		width: 300px;
+		height: calc(100vh - 80px);
 		background: white;
+		position: absolute;
+		z-index: 1;
 		top: 100%;
 		right: 0;
-		height: calc(100vh - 80px);
-		display: block;
-		width: 300px;
 		transition: transform 0.25s ease-in-out;
 		transform: translateX(100%);
 		box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
 
 		li {
-			margin: 0;
-			display: block;
-
 			a {
+				text-transform: uppercase;
+				font-weight: var(--semi-bold);
+				font-size: var(--normal);
 				padding: 30px;
 				display: block;
 
 				&.active {
+					color: var(--green);
 					background: #f0f0f0;
 				}
 			}
@@ -151,28 +151,49 @@
 		}
 	}
 
-	// ul {
-	// 	height: 100%;
-	// 	list-style: none;
-	// 	display: flex;
+	@media screen and (min-width: 480px) {
+		nav {
+			padding: 0 50px;
+		}
+		.menu-btn__burger {
+			width: 30px;
+			height: 4px;
+		}
+	}
 
-	// 	li {
-	// 		display: flex;
-	// 		align-items: center;
-	// 		margin: 0 25px;
-	// 	}
+	@media screen and (min-width: 767px) {
+		.menu-btn {
+			display: none;
+		}
 
-	// 	a {
-	// 		text-transform: uppercase;
-	// 		font-weight: var(--semi-bold);
-	// 		font-size: var(--normal);
+		ul {
+			position: initial;
+			transform: none;
+			box-shadow: none;
+			height: 100%;
+			width: auto;
+			display: flex;
 
-	// 		&.active {
-	// 			color: var(--green);
-	// 			font-weight: var(--bold);
-	// 		}
-	// 	}
-	// }
+			li {
+				display: flex;
+				align-items: center;
+				margin: 0 25px;
+
+				a {
+					padding: 0;
+					display: inline;
+
+					&.active {
+						background: white;
+					}
+				}
+
+				&:hover {
+					background: white;
+				}
+			}
+		}
+	}
 
 	.freeze-bg {
 		background: rgba(0, 0, 0, 0.5);

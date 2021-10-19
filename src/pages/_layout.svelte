@@ -4,13 +4,7 @@
 
 <NavBar />
 
-<main>
-	<slot />
-</main>
+<slot />
 
 <style>
-	main {
-		height: calc(100vh - 80px);
-		width: 100%;
-	}
 </style>

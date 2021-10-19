@@ -15,7 +15,9 @@ body {
 	color: var(--font-color-primary);
 	font-family: var(--font-primary);
 	overflow-x: hidden;
-	position: relative;
+	position: fixed;
+	top: 0;
+	left: 0;
 }
 
 /* Used to make the auto placed div wrapper behave like body tag */
@@ -57,6 +59,24 @@ body {
 	--bold: 700;
 }
 
+@media screen and (min-width: 768px) {
+	:root {
+		--small: 0.775rem;
+		--normal: 0.975rem;
+		--large: 1.2rem;
+		--huge: 2.1rem;
+	}
+}
+
+@media screen and (max-width: 300px) {
+	:root {
+		--small: 0.575rem;
+		--normal: 0.675rem;
+		--large: 0.8rem;
+		--huge: 1.5rem;
+	}
+}
+
 a {
 	text-decoration: none;
 	color: inherit;
@@ -66,4 +86,8 @@ a {
 button {
 	border: none;
 	outline: none;
+}
+
+ul {
+	list-style: none;
 }
