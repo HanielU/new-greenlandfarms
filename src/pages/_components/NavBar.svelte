@@ -152,8 +152,9 @@
 
 	@media screen and (min-width: 480px) {
 		nav {
-			padding: 0 50px;
+			padding: 0 25px;
 		}
+
 		.menu-btn__burger {
 			width: 30px;
 			height: 4px;
@@ -161,6 +162,10 @@
 	}
 
 	@media screen and (min-width: 767px) {
+		nav {
+			padding: 0 50px;
+		}
+
 		.menu-btn {
 			display: none;
 		}
