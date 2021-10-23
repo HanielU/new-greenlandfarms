@@ -47,7 +47,6 @@
 
 <style lang="scss">
 	nav {
-		// border: var(--border);
 		width: Max(300px, 100%);
 		height: 80px;
 		position: sticky;

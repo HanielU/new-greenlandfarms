@@ -7,10 +7,11 @@
 
 <style>
 	section {
-		height: min(90%, 90vh);
+		height: min(80%, 80vh);
 		width: 100%;
 		display: flex;
 		align-items: center;
+		justify-content: center;
 		margin-bottom: 50px;
 		background-image: url(/imgs/hero-bg.jpg);
 		background-position: center;
@@ -31,5 +32,12 @@
 	.subtitle {
 		font-size: var(--large);
 		font-weight: var(--semibold);
+	}
+
+	@media screen and (min-width: 768px) {
+		section {
+			padding-left: 100px;
+			justify-content: flex-start;
+		}
 	}
 </style>
