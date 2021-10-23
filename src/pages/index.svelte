@@ -1,9 +1,11 @@
 <script>
 	import PageIntro from "./_components/home/PageIntro.svelte";
-	import { metatags } from "@roxi/routify";
+	import AboutUs from "./_components/home/AboutUs.svelte";
+	import { metatags, prefetch } from "@roxi/routify";
 
-	metatags.title = "My Routify app";
+	metatags.title = "Greenland Farms";
 	metatags.description = "Description coming soon...";
 </script>
 
 <PageIntro />
+<AboutUs />
