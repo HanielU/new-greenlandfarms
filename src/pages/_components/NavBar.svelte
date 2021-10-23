@@ -29,7 +29,7 @@
 		<div class="menu-btn__burger" />
 	</button>
 
-	<ul class:open={navOpen}>
+	<ul class:open={navOpen} style={`--page-width: ${pageWidth}px`}>
 		{#each links as link}
 			<li>
 				<a
@@ -47,7 +47,7 @@
 
 <style lang="scss">
 	nav {
-		width: Max(300px, 100%);
+		width: Max(280px, 100%);
 		height: 80px;
 		position: sticky;
 		top: 0;
@@ -191,6 +191,21 @@
 					background: white;
 				}
 			}
+		}
+	}
+
+	@media screen and (max-width: 300px) {
+		.logo {
+			height: 65%;
+		}
+
+		.menu-btn__burger {
+			width: 25px;
+			height: 3px;
+		}
+
+		ul {
+			width: var(--page-width);
 		}
 	}
 
