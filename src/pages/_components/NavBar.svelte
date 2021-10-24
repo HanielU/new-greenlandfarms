@@ -1,5 +1,5 @@
 <script>
-	import { url, isActive } from "@roxi/routify";
+	import { url, isActive, prefetch } from "@roxi/routify";
 
 	const links = [
 		{ path: "./index", name: "Home" },
@@ -18,7 +18,7 @@
 <svelte:window bind:innerWidth={pageWidth} />
 <div class="freeze-bg" class:open={toggleFreeze} on:click={toggleNav} />
 
-<nav class:open={navOpen}>
+<nav>
 	<div class="logo">
 		<a href="/index" use:$url>
 			<img src="/imgs/logo.jpg" alt="Greenland Farms Logo" />
@@ -35,6 +35,7 @@
 				<a
 					href={link.path}
 					use:$url
+					use:prefetch
 					class:active={$isActive(link.path)}
 					on:click={toggleNav}
 				>
@@ -79,7 +80,7 @@
 			width: 27px;
 			height: 3.5px;
 			background: var(--font-color-primary);
-			transition: all 0.25s ease-in-out;
+			transition: transform 150ms ease-in;
 			position: relative;
 			border-radius: 5px;
 
@@ -91,7 +92,7 @@
 				width: inherit;
 				height: inherit;
 				background: var(--font-color-primary);
-				transition: all 0.25s ease-in-out;
+				transition: transform 150ms ease-in;
 				border-radius: 5px;
 			}
 			&::before {
@@ -104,7 +105,6 @@
 
 		&.open &__burger {
 			background: transparent;
-			transition: all 0.025s ease-in-out;
 			&::before {
 				transform: rotate(45deg);
 			}
@@ -122,7 +122,7 @@
 		z-index: 1;
 		top: 100%;
 		right: 0;
-		transition: transform 0.25s ease-in-out;
+		transition: transform 150ms ease-in;
 		transform: translateX(100%);
 		box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
 
